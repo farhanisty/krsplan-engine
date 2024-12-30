@@ -1,5 +1,6 @@
 import { ParsedSubjectItem } from "./ParsedSubjectItem";
 import { SubjectParser } from "./SubjectParser";
+import { Schedule } from "./../time/Schedule";
 
 export class SubjectParserImpl implements SubjectParser {
   private text: string;
@@ -38,7 +39,7 @@ export class SubjectParserImpl implements SubjectParser {
           credits: parsedLine[3],
           className: parsedLine[4],
           numberOfStudent: parsedLine[5],
-          schedule: parsedLine[6],
+          schedule: Schedule.buildFromString(parsedLine[6]),
           classRoom: parsedLine[7],
           lecturers: [],
         };

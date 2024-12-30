@@ -1,3 +1,4 @@
+import { Schedule } from "./../time/Schedule";
 export type ParsedSubjectItem = {
   id: number;
   studyProgram: string;
@@ -6,7 +7,7 @@ export type ParsedSubjectItem = {
   credits: number;
   className: string;
   numberOfStudent: number;
-  schedule: string;
+  schedule: Schedule;
   classRoom: string;
   lecturers: string[];
 };
