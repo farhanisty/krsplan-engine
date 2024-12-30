@@ -35,7 +35,7 @@ export class SubjectParserImpl implements SubjectParser {
           id: counter,
           studyProgram: key,
           code: parsedLine[1],
-          name: parsedLine[2],
+          name: parsedLine[2].trim(),
           credits: parsedLine[3],
           className: parsedLine[4],
           numberOfStudent: parsedLine[5],
