@@ -1,4 +1,4 @@
-import { ParsedSubjectItem } from "./ParsedSubjectItem";
+import { SubjectSchedule } from "./SubjectSchedule";
 import { SubjectParser } from "./SubjectParser";
 import { Schedule } from "./../time/Schedule";
 
@@ -9,8 +9,8 @@ export class SubjectParserImpl implements SubjectParser {
     this.text = text;
   }
 
-  parse(): ParsedSubjectItem[] {
-    const results: ParsedSubjectItem[] = [];
+  parse(): SubjectSchedule[] {
+    const results: SubjectSchedule[] = [];
 
     const lines = this.text.split("\n");
 

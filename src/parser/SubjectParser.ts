@@ -1,5 +1,5 @@
-import { ParsedSubjectItem } from "./ParsedSubjectItem";
+import { SubjectSchedule } from "./SubjectSchedule";
 
 export interface SubjectParser {
-  parse(): ParsedSubjectItem[];
+  parse(): SubjectSchedule[];
 }

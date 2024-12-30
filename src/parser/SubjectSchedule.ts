@@ -1,5 +1,5 @@
 import { Schedule } from "./../time/Schedule";
-export type ParsedSubjectItem = {
+export type SubjectSchedule = {
   id: number;
   studyProgram: string;
   code: string;
