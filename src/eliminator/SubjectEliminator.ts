@@ -1,7 +1,7 @@
 import { SubjectSchedule } from "./../parser/SubjectSchedule";
 
 export abstract class SubjectElminator {
-  next: SubjectElminator = null;
+  next: SubjectElminator | null = null;
   message: string = "Eliminated";
 
   setMessage(message: string): void {

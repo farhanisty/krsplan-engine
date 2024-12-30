@@ -5,11 +5,12 @@ export class ChoosedSubjectEliminator extends SubjectElminator {
   name: string;
 
   constructor(name: string) {
+    super();
     this.name = name;
   }
 
   execute(targetSchedule: SubjectSchedule, reason: string[]): string[] {
-    if (subjectSchedule.name == this.name) {
+    if (targetSchedule.name == this.name) {
       reason.push(this.message);
     }
 

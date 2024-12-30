@@ -1,18 +1,18 @@
 export class Time {
-  hour: int;
-  minute: int;
+  hour: number;
+  minute: number;
 
-  constructor(hour: int, minute: int) {
+  constructor(hour: number, minute: number) {
     this.hour = hour;
     this.minute = minute;
   }
 
-  inMinute(): int {
+  inMinute(): number {
     return this.hour * 60 + this.minute;
   }
 
   static buildFromString(time: string) {
     const res = time.split(":");
-    return new Time(res[0], res[1]);
+    return new Time(parseInt(res[0]), parseInt(res[1]));
   }
 }

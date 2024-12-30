@@ -5,11 +5,12 @@ export class OverlapTimeEliminator extends SubjectElminator {
   subjectSchedule: SubjectSchedule;
 
   constructor(subjectSchedule: SubjectSchedule) {
+    super();
     this.subjectSchedule = subjectSchedule;
   }
 
   execute(targetSchedule: SubjectSchedule, reason: string[]): string[] {
-    if (this.subjectSchedule.scedule.isOverlap(targetSchedule.schedule)) {
+    if (this.subjectSchedule.schedule.isOverlap(targetSchedule.schedule)) {
       reason.push(this.message);
     }
 

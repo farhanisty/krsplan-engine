@@ -16,7 +16,18 @@ export class SubjectParserImpl implements SubjectParser {
 
     let key: string = "";
 
-    let subjectItemTemp = null;
+    let subjectItemTemp: SubjectSchedule = {
+      id: 0,
+      studyProgram: "temp",
+      code: "temp",
+      name: "temp",
+      credits: 0,
+      className: "temp",
+      numberOfStudent: 0,
+      schedule: Schedule.buildFromString("Senin 07:00-10:00"),
+      classRoom: "temp",
+      lecturers: [],
+    };
 
     let counter = 1;
 
@@ -36,15 +47,17 @@ export class SubjectParserImpl implements SubjectParser {
           studyProgram: key,
           code: parsedLine[1],
           name: parsedLine[2].trim(),
-          credits: parsedLine[3],
+          credits: parseInt(parsedLine[3]),
           className: parsedLine[4],
-          numberOfStudent: parsedLine[5],
+          numberOfStudent: parseInt(parsedLine[5]),
           schedule: Schedule.buildFromString(parsedLine[6]),
           classRoom: parsedLine[7],
           lecturers: [],
         };
 
-        results.push(subjectItemTemp);
+        if (subjectItemTemp !== null) {
+          results.push(subjectItemTemp);
+        }
 
         counter += 1;
       } else {
