@@ -2,6 +2,10 @@ import { SubjectSchedule } from "./SubjectSchedule";
 import { SubjectParser } from "./SubjectParser";
 import { Schedule } from "./../time/Schedule";
 
+function isIntegerString(str: string): boolean {
+  return /^-?\d+$/.test(str);
+}
+
 export class SubjectParserImpl implements SubjectParser {
   private text: string;
 
@@ -42,13 +46,21 @@ export class SubjectParserImpl implements SubjectParser {
       }
 
       if (parsedLine[0] == key) {
+        let creditIndex = 3;
+        let classNameIndex = 4;
+
+        if(!isIntegerString(parsedLine[creditIndex])) {
+          console.log("haii");
+          [creditIndex, classNameIndex] = [classNameIndex, creditIndex];
+        }
+
         subjectItemTemp = {
           id: counter,
           studyProgram: key,
           code: parsedLine[1],
           name: parsedLine[2].trim(),
-          credits: parseInt(parsedLine[3]),
-          className: parsedLine[4],
+          credits: parseInt(parsedLine[creditIndex]),
+          className: parsedLine[classNameIndex],
           numberOfStudent: parseInt(parsedLine[5]),
           schedule: Schedule.buildFromString(parsedLine[6]),
           classRoom: parsedLine[7],
